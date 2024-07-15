@@ -1,4 +1,6 @@
-const ws = new WebSocket('ws://localhost:3000');
+
+
+const ws = new WebSocket('ws://' + location.hostname + ':3000');
 
 // For differentiating groups
 const urlParams = new URLSearchParams(window.location.search);
