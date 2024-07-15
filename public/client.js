@@ -1,6 +1,6 @@
 
 
-const ws = new WebSocket('ws://' + location.hostname + ':80');
+const ws = new WebSocket('ws://' + location.hostname + ':8080');
 
 // For differentiating groups
 const urlParams = new URLSearchParams(window.location.search);
