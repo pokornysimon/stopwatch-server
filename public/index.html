@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch App</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body,
+    #root,
+    .App {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 2px solid black;
+    }
+
+    td,
+    th {
+      padding: 5px 15px;
+    }
+
+    .mb-15 {
+      margin-bottom: 15px;
+    }
+
+    #buttons {
+      width: 100%;
+    }
+
+    #buttons>button {
+      margin-bottom: 0px;
+      flex: 1;
+      width: 100%;
+      height: 90px;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #registerBtn {
+      width: 173px;
+      height: 35px;
+    }
+
+    #redBtn {
+      background-color: #f17676;
+    }
+
+    #blueBtn {
+      background-color: #86a0f5;
+    }
+
+    #yellowBtn {
+      background-color: #eceb91;
+    }
+
+    #greenBtn {
+      background-color: #9dfcaa;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Stopky na vlajkovanou</h1>
+  <br />
+  <label for="groupName">Název skupiny</label>
+  <input type="text" id="groupName" disabled style="width: 350px;">
+  <br />
+  <label for="groupName">Odkaz pro sdílení</label>
+  <a href="" id="aLink"></a>
+  <br />
+  <label for="teamName">Zadej jméno stanoviště</label>
+  <input type="text" id="teamName">
+  <br />
+  <button id="registerBtn">Registrace</button>
+  <br />
+  <div id="buttons" hidden>
+    <button id="redBtn">Červená</button>
+    <button id="blueBtn">Modrá</button>
+    <button id="yellowBtn">Žlutá</button>
+    <button id="greenBtn">Zelená</button>
+  </div>
+  <br />
+  <h2>Statistiky</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Stanoviště</th>
+        <th style="background-color: #f17676;">Červená</th>
+        <th style="background-color: #86a0f5;">Modrá</th>
+        <th style="background-color: #eceb91;">Žlutá</th>
+        <th style="background-color: #9dfcaa;">Zelená</th>
+        <th>Aktivní</th>
+      </tr>
+    </thead>
+    <tbody id="stats">
+    </tbody>
+  </table>
+  <br />
+  <br />
+  <button id="resetBtn">Resetovat</button>
+  <script src="client.js"></script>
+</body>
+
+</html>
