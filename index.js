@@ -2,7 +2,7 @@ const express = require('express');
 const WebSocket = require('ws');
 
 const app = express();
-const port = 8181;
+const port = 80;
 
 app.use(express.static('public'));
 
