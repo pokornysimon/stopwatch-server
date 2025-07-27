@@ -32,7 +32,7 @@ wss.on('connection', (ws) => {
         }
 
         if (!groups[group].teams[team]) {
-          groups[group].teams[team] = { red: 0, blue: 0, yellow: 0, green: 0, running: null };
+          groups[group].teams[team] = { red: 0, blue: 0, yellow: 0, green: 0, life: 0, running: null };
           console.log("New team registered: `%s` in group `%s`", team, group)
         }
         broadcastTeams();
@@ -53,6 +53,11 @@ wss.on('connection', (ws) => {
       case 'reset':
         console.log("Reseting everything!");
         groups[group].teams = {};
+
+      case 'life':
+        console.log("Life added to team");
+        groups[group].teams[team].life += 1
+        break;
     }
 
     Object.keys(groups).forEach((group) => {

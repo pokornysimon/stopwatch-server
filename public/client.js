@@ -25,6 +25,7 @@ const buttons = document.getElementById('buttons');
 const registerBtn = document.getElementById('registerBtn');
 const resetBtn = document.getElementById('resetBtn');
 const statsTable = document.getElementById('stats');
+const lifeBtn = document.getElementById('lifeBtn');
 
 resetBtn.addEventListener('click', () => {
   if (confirm("Opravdu chcete všechno smazat?!")) {
@@ -39,6 +40,13 @@ registerBtn.addEventListener('click', () => {
     buttons.style.display = 'block';
   }
 });
+
+lifeBtn.addEventListener('click', () => {
+  teamName = document.getElementById('teamName').value;
+  ws.send(JSON.stringify({ type: 'life', team: teamName, group: groupName }))
+})
+
+
 
 document.getElementById('redBtn').addEventListener('click', () => handleButtonClick('red'));
 document.getElementById('blueBtn').addEventListener('click', () => handleButtonClick('blue'));
@@ -76,6 +84,8 @@ function translateLight(color) {
       return "#eceb91";
     case 'green':
       return "#9dfcaa";
+    case 'life':
+      return "#333333"
   }
 }
 
@@ -99,6 +109,11 @@ function updateStats(teams) {
 
       row.appendChild(cell);
     });
+
+
+    const lifeCell = document.createElement('td');
+    lifeCell.textContent = teams[team].life;
+    row.appendChild(lifeCell);
 
     const colorCell = document.createElement('td');
     colorCell.style.backgroundColor = teams[team].running === null ? "white" : teams[team].running;
